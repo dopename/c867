@@ -15,40 +15,67 @@ public:
 		studentID = newStudentID;
 		return;
 	}
+
 	void SetStudentFirstName(string fname) {
 		firstName = fname;
 		return;
 	}
+
 	void SetStudentLastName(string lname) {
 		lastName = lname;
 		return;
 	}
+
 	void SetStudentEmail(stirng studentEmail) {
 		email = studentEmail;
 		return;
 	}
+
 	void SetStudentAge(int studentAge) {
 		age = studentAge;
+		return;
+	}
+
+	void SetStudentDaysInCourse(int[] daysInCourse) {
+		this->daysInCourse = daysInCourse;
+		return;
+	}
+
+	void SetStudentDegree(Degree degree) {
+		this->degree = degree;
 		return;
 	}
 	//Getters for Student info
 	int GetStudentID() const {
 		return studentID
 	}
+
 	string GetStudentFirstName() const {
 		return firstName;
 	}
+
 	string GetStudentLastName() const {
 		return lastName;
 	}
+
 	string GetStudentEmail() const {
 		return email;
 	}
+
 	int GetStudentAge() const {
 		return age;
 	}
+
+	int GetStudentDaysInCourse() const {
+		return daysInCourse;
+	}
+
+	Degree GetStudentDegree() const {
+		return degree
+	}
+
 	Student();
-	Student(int studentID, string firstName, string lastName, string email, int age, int daysInCourse[], string degree);
+	Student(int studentID, string firstName, string lastName, string email, int age, int daysInCourse[], Degree degree);
 
 private:
 	int studentID;
@@ -57,7 +84,7 @@ private:
 	string email;
 	int age;
 	int daysInCourse[];
-	string degree;
+	Degree degree;
 
 	Student::Student() {
 		firstName = "default";
@@ -71,7 +98,7 @@ private:
 		return;
 	}
 
-	Student::Student(int studentID, string firstName, string lastName, string email, int age, int daysInCourse[], string degree) {
+	Student::Student(int studentID, string firstName, string lastName, string email, int age, int daysInCourse[], Degree degree) {
 		this->firstName = firstName;
 		this->lastName = lastName;
 		this->studentID = studentID;
