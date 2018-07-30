@@ -12,17 +12,19 @@ class Student {
 public:
 	//Virtual Print
 	virtual void print() {
-		cout << "Some text here";
+		cout << GetStudentFirstName() << " ";
+		cout << GetStudentLastName() << " ";
+		cout << GetStudentAge() << endl;
 		return;
 	}
 
 	//Virtual getDegreeProgram
-	virtual Degree getDegreeProgram() {
+	virtual void getDegreeProgram() {
 		return;
 	}
 
 	//Setters for Student info
-	void SetStudentID(int studentID) {
+	void SetStudentID(string studentID) {
 		this->studentID = studentID;
 		return;
 	}
@@ -52,13 +54,13 @@ public:
 		return;
 	}
 
-	void SetStudentDegree(Degree degreeTypes) {
-		this->degreeTypes = degreeTypes;
-		return;
-	}
+	//void SetStudentDegree(Degree degreeTypes) {
+	//	this->degreeTypes = degreeTypes;
+	//	return;
+	//}
 
 	//Getters for Student info
-	int GetStudentID() const {
+	string GetStudentID() const {
 		return studentID;
 	}
 
@@ -83,49 +85,50 @@ public:
 	}
 
 	//Default constructor
-	Student();
+	//Student();
 
 	//Constructor using props
-	Student(int studentID, string firstName, string lastName, string email, int age, int daysInCourse[], Degree degree);
+	//Student(int studentID, string firstName, string lastName, string email, int age, int* daysInCourse);// , Degree degree);
 
-	~Student();
+	//~Student();
 
-private:
-	int studentID;
-	string firstName;
-	string lastName;
-	string email;
-	int age;
-	int* daysInCourse;
-	Degree degreeTypes;
+	Student::~Student() {
+		delete daysInCourse;
+		return;
+	}
 
 	Student::Student() {
 		firstName = "default";
-		lastName = "default"
-			studentID = 000000;
+		lastName = "default";
+		studentID = "000000";
 		email = "nmarin7@wgu.edu";
 		age = 26;
-		daysInCourse = { 0, 0, 0 };
-		degreeTypes = degree::Degree;
+		daysInCourse = new int[3]{ 0, 0, 0 };
+		//degreeTypes = SOFTWARE;
 
 		return;
 	}
 
-	Student::Student(int studentID, string firstName, string lastName, string email, int age, int daysInCourse[], Degree degreeTypes) {
+	Student::Student(string studentID, string firstName, string lastName, string email, int age, int* daysInCourse) {// , Degree degreeTypes) {
 		this->firstName = firstName;
 		this->lastName = lastName;
 		this->studentID = studentID;
 		this->email = email;
 		this->age = age;
 		this->daysInCourse = daysInCourse;
-		this->degreeTypes = degreeTypes;
+		//this->degreeTypes = degreeTypes;
 
 		return;
 	}
 
-	inline Student::~Student()
-	{
-	}
+private:
+	string studentID;
+	string firstName;
+	string lastName;
+	string email;
+	int age;
+	int* daysInCourse;
+	//Degree degreeTypes;
 
 };
 

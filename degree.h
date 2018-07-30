@@ -3,6 +3,6 @@
 
 using namespace std;
 
-enum Degree {NETWORKING, SOFTWARE, SECUIRTY};
+enum Degree {NETWORK, SOFTWARE, SECURITY};
 
 #endif

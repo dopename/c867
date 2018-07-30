@@ -29,8 +29,77 @@ void main() {
 		}
 		else if (userChoice == 'L') {
 			Student classRosterArray[5];
-			
-			classRosterArray[0] = Student();
+
+			int rosterSize = studentData->length;
+
+			for (int i = 0; i < rosterSize - 1; ++i) {
+				string student = studentData[i];
+				string firstName;
+				string lastName;
+				string email;
+				Degree course;
+				int age;
+				string studentID;
+				int* daysPtr = nullptr;
+				int stops = 0;
+				int prevIndex = 0;
+				int days[3];
+
+
+				for (int j = 0; student[j] != '\0'; ++j) {
+					if (student[j] == ',') {
+						switch (stops) {
+						case 0:
+							studentID = student.substr(0, j);
+							stops += 1;
+							prevIndex = j;
+						case 1:
+							firstName = student.substr(prevIndex, j);
+							stops += 1;
+							prevIndex = j;
+						case 2:
+							lastName = student.substr(prevIndex, j);
+							stops += 1;
+							prevIndex = j;
+						case 3:
+							email = student.substr(prevIndex, j);
+							stops += 1;
+							prevIndex = j;
+						case 4:
+							age = stoi(student.substr(prevIndex, j));
+							stops += 1;
+							prevIndex = j;
+						case 5:
+							days[0] = stoi(student.substr(prevIndex, j));
+							stops += 1;
+							prevIndex = j;
+						case 6:
+							days[1] = stoi(student.substr(prevIndex, j));
+							stops += 1;
+							prevIndex = j;
+						case 7:
+							days[2] = stoi(student.substr(prevIndex, j));
+							stops += 1;
+							prevIndex = j;
+						case 8:
+							string courseString = student.substr(prevIndex, j);
+							if (courseString == "SOFTWARE") {
+								course = SOFTWARE;
+							}
+							else if (courseString == "NETWORK") {
+								course = NETWORK;
+							}
+							else {
+								course = SECURITY;
+							}
+						}
+						daysPtr = &days;
+					}
+				}
+				classRosterArray[i] = Student(studentID, firstName, lastName, email, age, days);
+			}
+
+
 
 			cout << "What would you like to do?... again (P) for print" << endl;
 			cin >> userChoice;
