@@ -1,13 +1,8 @@
 #ifndef DEGREE_H
 #define DEGREE_H
 
-include "secutiyStudent.h";
-include "softwareStudent.h";
-include "networkStudent.h";
+using namespace std;
 
-using Degree = char[3];
-
-Degree = {"NETWORKING", "SOFTWARE", "SECURITY"}
-
+enum Degree {NETWORKING, SOFTWARE, SECUIRTY};
 
 #endif

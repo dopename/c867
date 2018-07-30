@@ -2,9 +2,4 @@
 #define ROSTER_H
 
 
-void main {
-	return;
-}
-
-
 #endif
