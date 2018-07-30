@@ -9,105 +9,122 @@ using namespace std;
 #include "degree.h"
 
 class Student {
-public:
-	//Setters for Student info
-	void SetStudentID(int newStudentID) {
-		studentID = newStudentID;
-		return;
-	}
+	public:
+		//Virtual Print
+		virtual void print() {
+			cout << "Some text here";
+			return''
+		}
 
-	void SetStudentFirstName(string fname) {
-		firstName = fname;
-		return;
-	}
+		//Virtual getDegreeProgram
+		virtual Dergee getDegreeProgram() {
+			return this->degree
+		}
 
-	void SetStudentLastName(string lname) {
-		lastName = lname;
-		return;
-	}
+		//Setters for Student info
+		void SetStudentID(int newStudentID) {
+			studentID = newStudentID;
+			return;
+		}
 
-	void SetStudentEmail(stirng studentEmail) {
-		email = studentEmail;
-		return;
-	}
+		void SetStudentFirstName(string fname) {
+			firstName = fname;
+			return;
+		}
 
-	void SetStudentAge(int studentAge) {
-		age = studentAge;
-		return;
-	}
+		void SetStudentLastName(string lname) {
+			lastName = lname;
+			return;
+		}
 
-	void SetStudentDaysInCourse(int[] daysInCourse) {
-		this->daysInCourse = daysInCourse;
-		return;
-	}
+		void SetStudentEmail(stirng studentEmail) {
+			email = studentEmail;
+			return;
+		}
 
-	void SetStudentDegree(Degree degree) {
-		this->degree = degree;
-		return;
-	}
-	//Getters for Student info
-	int GetStudentID() const {
-		return studentID
-	}
+		void SetStudentAge(int studentAge) {
+			age = studentAge;
+			return;
+		}
 
-	string GetStudentFirstName() const {
-		return firstName;
-	}
+		void SetStudentDaysInCourse(int[] daysInCourse) {
+			this->daysInCourse = daysInCourse;
+			return;
+		}
 
-	string GetStudentLastName() const {
-		return lastName;
-	}
+		void SetStudentDegree(Degree degree) {
+			this->degree = degree;
+			return;
+		}
 
-	string GetStudentEmail() const {
-		return email;
-	}
+		//Getters for Student info
+		int GetStudentID() const {
+			return studentID
+		}
 
-	int GetStudentAge() const {
-		return age;
-	}
+		string GetStudentFirstName() const {
+			return firstName;
+		}
 
-	int GetStudentDaysInCourse() const {
-		return daysInCourse;
-	}
+		string GetStudentLastName() const {
+			return lastName;
+		}
 
-	Degree GetStudentDegree() const {
-		return degree
-	}
+		string GetStudentEmail() const {
+			return email;
+		}
 
-	Student();
-	Student(int studentID, string firstName, string lastName, string email, int age, int daysInCourse[], Degree degree);
+		int GetStudentAge() const {
+			return age;
+		}
 
-private:
-	int studentID;
-	string firstName;
-	string lastName;
-	string email;
-	int age;
-	int daysInCourse[];
-	Degree degree;
+		int GetStudentDaysInCourse() const {
+			return daysInCourse;
+		}
 
-	Student::Student() {
-		firstName = "default";
-		lastName = "default"
-		studentID = 000000;
-		email = "nmarin7@wgu.edu";
-		age = 26;
-		daysInCourse = {0, 0, 0};
-		degree = "SOFTWARE";
+		Degree GetStudentDegree() const {
+			return degree
+		}
 
-		return;
-	}
+		//Default constructor
+		Student();
 
-	Student::Student(int studentID, string firstName, string lastName, string email, int age, int daysInCourse[], Degree degree) {
-		this->firstName = firstName;
-		this->lastName = lastName;
-		this->studentID = studentID;
-		this->email = email;
-		this->age = age;
-		this->daysInCourse = daysInCourse;
-		this->degree = degree;
+		//Constructor using props
+		Student(int studentID, string firstName, string lastName, string email, int age, int daysInCourse[], Degree degree);
 
-		return;
+		~Student();
+
+	private:
+		int studentID;
+		string firstName;
+		string lastName;
+		string email;
+		int age;
+		int daysInCourse[];
+		Degree degree;
+
+		Student::Student() {
+			firstName = "default";
+			lastName = "default"
+			studentID = 000000;
+			email = "nmarin7@wgu.edu";
+			age = 26;
+			daysInCourse = {0, 0, 0};
+			degree = "SOFTWARE";
+
+			return;
+		}
+
+		Student::Student(int studentID, string firstName, string lastName, string email, int age, int daysInCourse[], Degree degree) {
+			this->firstName = firstName;
+			this->lastName = lastName;
+			this->studentID = studentID;
+			this->email = email;
+			this->age = age;
+			this->daysInCourse = daysInCourse;
+			this->degree = degree;
+
+			return;
 	}
 
 #endif
