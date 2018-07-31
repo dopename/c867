@@ -4,23 +4,30 @@
 #include <iostream>
 #include <vector>
 #include <string>
-using namespace std;
 
 #include "degree.h"
+
+using namespace std;
+
 
 class Student {
 public:
 	//Virtual Print
 	virtual void print() {
-		cout << GetStudentFirstName() << " ";
-		cout << GetStudentLastName() << " ";
-		cout << GetStudentAge() << endl;
+		cout << GetStudentID() << "\t";
+		cout << "First Name: " << GetStudentFirstName() << "\t";
+		cout << "Last Name: " <<GetStudentLastName() << "\t";
+		cout << "Age: " << GetStudentAge() << "\t\t";
+		cout << "daysInCourse: ";
+		PrintAllDaysInCourse();
+		cout << "\t";
+		cout << "Degree Program: " << GetDegreeString() << "\t";
 		return;
 	}
 
 	//Virtual getDegreeProgram
 	virtual Degree getDegreeProgram() {
-		return;
+		return degree;
 	}
 
 	//Setters for Student info
@@ -64,12 +71,32 @@ public:
 		return;
 	}
 
-	//void SetStudentDegree(Degree degreeTypes) {
-	//	this->degreeTypes = degreeTypes;
-	//	return;
-	//}
+	void PrintAllDaysInCourse() {
+		cout << "{" << GetStudentDaysInCourse1() << ", " << GetStudentDaysInCourse2() << ", " << GetStudentDaysInCourse3() << "}";
+		return;
+	}
+
+	void SetStudentDegree(Degree degreeTypes) {
+		this->degree = degree;
+		return;
+	}
 
 	//Getters for Student info
+	string GetDegreeString() const {
+		if (degree == 0) {
+			return "Network";
+		}
+		else if (degree == 1) {
+			return "Software";
+		}
+		else if (degree == 2) {
+			return "Security";
+		}
+		else {
+			return "Not a valid degree";
+		}
+	}
+
 	string GetStudentID() const {
 		return studentID;
 	}
@@ -110,9 +137,9 @@ public:
 
 	//~Student();
 
-	Student::~Student() {
-		return;
-	}
+	//Student::~Student() {
+	//	return;
+	//}
 
 	Student::Student() {
 		firstName = "default";
@@ -123,12 +150,13 @@ public:
 		daysInCourse1 = 0;
 		daysInCourse2 = 0;
 		daysInCourse3 = 0;
-		//degreeTypes = SOFTWARE;
+		degree = SOFTWARE;
 
 		return;
 	}
 
-	Student::Student(string studentID, string firstName, string lastName, string email, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3) {// , Degree degreeTypes) {
+protected:
+	Student::Student(string studentID, string firstName, string lastName, string email, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree degree) {
 		this->firstName = firstName;
 		this->lastName = lastName;
 		this->studentID = studentID;
@@ -137,7 +165,7 @@ public:
 		this->daysInCourse1 = daysInCourse1;
 		this->daysInCourse2 = daysInCourse2;
 		this->daysInCourse3 = daysInCourse3;
-		//this->degreeTypes = degreeTypes;
+		this->degree= degree;
 
 		return;
 	}
@@ -151,7 +179,7 @@ private:
 	int daysInCourse1;
 	int daysInCourse2;
 	int daysInCourse3;
-	//Degree degreeTypes;
+	Degree degree;
 
 };
 
