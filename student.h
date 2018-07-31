@@ -19,7 +19,7 @@ public:
 	}
 
 	//Virtual getDegreeProgram
-	virtual void getDegreeProgram() {
+	virtual Degree getDegreeProgram() {
 		return;
 	}
 
@@ -49,8 +49,18 @@ public:
 		return;
 	}
 
-	void SetStudentDaysInCourse(int* daysInCourse) {
-		this->daysInCourse = daysInCourse;
+	void SetStudentDaysInCourse1(int daysInCourse1) {
+		this->daysInCourse1 = daysInCourse1;
+		return;
+	}
+
+	void SetStudentDaysInCourse2(int daysInCourse2) {
+		this->daysInCourse2 = daysInCourse2;
+		return;
+	}
+
+	void SetStudentDaysInCourse3(int daysInCourse3) {
+		this->daysInCourse3 = daysInCourse3;
 		return;
 	}
 
@@ -80,8 +90,16 @@ public:
 		return age;
 	}
 
-	int* GetStudentDaysInCourse() const {
-		return daysInCourse;
+	int GetStudentDaysInCourse1() const {
+		return daysInCourse1;
+	}
+
+	int GetStudentDaysInCourse2() const {
+		return daysInCourse2;
+	}
+
+	int GetStudentDaysInCourse3() const {
+		return daysInCourse3;
 	}
 
 	//Default constructor
@@ -93,7 +111,6 @@ public:
 	//~Student();
 
 	Student::~Student() {
-		delete daysInCourse;
 		return;
 	}
 
@@ -103,19 +120,23 @@ public:
 		studentID = "000000";
 		email = "nmarin7@wgu.edu";
 		age = 26;
-		daysInCourse = new int[3]{ 0, 0, 0 };
+		daysInCourse1 = 0;
+		daysInCourse2 = 0;
+		daysInCourse3 = 0;
 		//degreeTypes = SOFTWARE;
 
 		return;
 	}
 
-	Student::Student(string studentID, string firstName, string lastName, string email, int age, int* daysInCourse) {// , Degree degreeTypes) {
+	Student::Student(string studentID, string firstName, string lastName, string email, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3) {// , Degree degreeTypes) {
 		this->firstName = firstName;
 		this->lastName = lastName;
 		this->studentID = studentID;
 		this->email = email;
 		this->age = age;
-		this->daysInCourse = daysInCourse;
+		this->daysInCourse1 = daysInCourse1;
+		this->daysInCourse2 = daysInCourse2;
+		this->daysInCourse3 = daysInCourse3;
 		//this->degreeTypes = degreeTypes;
 
 		return;
@@ -127,7 +148,9 @@ private:
 	string lastName;
 	string email;
 	int age;
-	int* daysInCourse;
+	int daysInCourse1;
+	int daysInCourse2;
+	int daysInCourse3;
 	//Degree degreeTypes;
 
 };

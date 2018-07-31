@@ -6,14 +6,14 @@
 #include <string>
 
 #include "student.h"
+#include "degree.h"
 
 using namespace std;
 
-class SoftwareStudent : public Student {
+class NetworkStudent : public Student {
 	public:
-		Degree getDegreeProgram() {
-			this->degree = NETWORK;
-			return;
+		Degree getDegreeProgram() override {
+			return NETWORK;
 		}
 	private:
 		Degree degree;

@@ -6,14 +6,14 @@
 #include <string>
 
 #include "student.h"
+#include "degree.h"
 
 using namespace std;
 
 class SecurityStudent : public Student {
 	public:
-		Degree getDegreeProgram() {
-			this->degree = SECURITY;
-			return;
+		Degree getDegreeProgram() override {
+			return SECURITY;
 		}
 	private:
 		Degree degree;
