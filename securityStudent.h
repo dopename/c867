@@ -1,23 +1,16 @@
 #ifndef SECURITYSTUDENT_H
 #define SECURITYSTUDENT_H
 
-#include <iostream>
-#include <vector>
-#include <string>
-
 #include "student.h"
 
 using namespace std;
 
 class SecurityStudent : public Student {
-	public:
-		Degree getDegreeProgram() override {
-			return SECURITY;
-		}
-
-		SecurityStudent(string studentID, string firstName, string lastName, string email, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree degree) : Student(studentID, firstName, lastName, email, age, daysInCourse1, daysInCourse2, daysInCourse3, degree) {}
-	private:
-		Degree degree;
+public:
+	Degree getDegreeProgram() override;
+	SecurityStudent(string studentID, string firstName, string lastName, string email, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree degree);
+private:
+	Degree degree;
 
 };
 
